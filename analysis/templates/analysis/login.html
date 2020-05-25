@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+    <head>
+        <link href = "{% static 'bootstrap/css/bootstrap.min.css' %}" rel = "stylesheet">
+        <link href = "{% static 'css/app.css' %}" rel = "stylesheet">
+
+    </head>
+    <body>
+            <div class="navbar-container container-fluid">
+                <nav class="col-sm col-md col-lg navbar navbar-expand-lg bg-light navbar-custom">
+                 <ul class="navbar-nav mr-auto">
+                        <img src={% static 'img/logo.jpg' %} alt="sdap logo" class="logo-style">
+                    </ul>
+                    <label class=" col-sm col-md col-lg navbar-brand text-center" href="#">
+                    Student Data Analysis and Prediction</label>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container login">
+           
+            <div class="row ">
+                <div class="col-sm col-md col-lg text-center">
+                    <h1 class="alert-heading"> Login </h1>
+                </div>
+            </div>
+
+            <div class="row ">
+                 <div class="col-sm col-md col-lg login-input form-group">
+                   <input type=" text" class="form-control" id ="usr" placeholder="Username"></input>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-sm col-md col-lg login-input form-group">
+                   <input type="password" class="form-control" id ="pswd" placeholder="Password"></input>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-sm col-md col-lg form-group text-center">
+                    <a class="btn btn-primary" href={% url 'dashboard' %}>Login</a>
+                </div>
+            </div>
+
+        </div>  
+
+        <div class="card footer">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <footer class="blockquote-footer"> Copyright &copy Arizona State University</footer>
+                </blockquote>
+            </div>
+        </div>   
+</html>

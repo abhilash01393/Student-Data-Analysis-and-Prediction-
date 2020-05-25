@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+    <head>
+        <link href = "{% static 'bootstrap/css/bootstrap.min.css' %}" rel = "stylesheet">
+        <link href = "{% static 'css/app.css' %}" rel = "stylesheet">
+        <link href = "{% static 'fontawesome/css/fontawesome.min.css' %}" rel = "stylesheet">
+    </head>
+    <body>
+        <nav class="col-sm col-md col-lg navbar navbar-fixed-top navbar-expand-lg  bg-light navbar-custom">
+                            
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </ul>
+
+            <label class=" col-sm col-md col-lg navbar-brand text-center nav-align" href="#">
+                            Student Data Analysis and Prediction</label>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+           <div class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Logout</a>
+            </div>
+        </div>
+</nav>
+
+<!-- sidebar and page content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class= "col-sm-4 col-md-4 col-lg-4 sidenav-container">
+            <div id="mySidenav" class="sidenav ">
+                <a href="{% url 'charts' %}">Charts</a>
+                <a href="#">Courses</a>
+                <a href="#">Assignments</a>
+                <a href="#"></a>
+        </div>
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8 student-content hidden">
+            <div class="row">
+            <div class="col-sm col-md col-lg">
+                <a class="btn " href="{% url 'charts' %}" role="button"><img src = "{% static 'img/chart_thumb.PNG' %}" alt=" button-shape" class="button-shape"></a>
+            </div>
+            <div class="col-sm col-md col-lg ">
+                <a class="btn " href="#" role="button"><img src ="{% static 'img/grades_thumb.png' %}" alt = "grades thumb" class =" button-shape"></a>       
+            </div>
+            <div class="col-sm col-md col-lg">
+                <a class="btn" href="#" role="button"><img src="{% static 'img/course_thumb.png' %}" alt="courses thumb" class="button-shape"></a>
+            </div>
+        </div>  
+         </div>
+     
+    </div>
+
+    
+</div>
+
+<div class="card footer">
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <footer class="blockquote-footer"> &copy Arizona State University</footer>
+        </blockquote>
+    </div>
+</div>  
+</html>

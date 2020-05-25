@@ -1,0 +1,110 @@
+{% load static %}
+
+<html>
+    <head>
+        <link href = "{% static 'bootstrap/css/bootstrap.css' %}" rel = "stylesheet">
+         <link href = "{% static 'css/app.css' %}" rel = "stylesheet">
+         <link href = "{% static 'fontawesome/css/fontawesome.min.css' %}" rel = "stylesheet">
+         <script src = "{% static 'js/plotly-latest-min.js' %}"></script>
+
+    </head>
+
+    {% block body %}
+<nav class="col-sm col-md col-lg navbar navbar-fixed-top navbar-expand-lg  bg-light navbar-custom">
+                            
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </ul>
+
+            <label class=" col-sm col-md col-lg navbar-brand text-center nav-align" href="#">
+                            Student Data Analysis and Prediction</label>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+           <div class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Back</a>
+            </div>
+        </div>
+</nav>
+
+<!-- sidebar and page content-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class= "col-sm-4 col-md-4 col-lg-4 sidenav-container">
+            <div id="mySidenav" class="sidenav dash-sdienav">
+                <a href="{% url 'charts' %}">Charts</a>
+                <a href="#">Courses</a>
+                <a href="#">Assignments</a>
+                <a href="#"></a>
+        </div>
+        </div>
+
+         <!--charts for students performance-->
+        <div id="student-charts" class="col-sm-8 col-md-8 col-lg-8 student-content"></div>  
+      </div>
+  </div>
+</div>
+
+<div class="card footer">
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <footer class="blockquote-footer"> &copy Arizona State University</footer>
+        </blockquote>
+    </div>
+</div>  
+<script>
+barchart = document.getElementById('student-charts');
+var trace1 = [{
+	x: {{courselist}},
+	y: {{scorelist}},
+	type: 'bar',
+    name: 'Assignment marks',
+	title: 'Grade analysis of Course assignments',
+	text: ['Assignment1', 'Assignment2', 'Assignment3', 'Activity3', 'Activity4'],
+	marker: {
+		color: 'rgb(21, 168, 107)'
+	}
+}]
+
+var layout = {
+	title: 'Course Grade Analysis',
+	font: {
+		family: 'Raleway, sans-serif'
+	},
+	showlegend: true,
+	xaxis: {
+		tickangle: -45,
+        title: 'Courses'
+	},
+	yaxis: {
+		zeroline: false,
+		gridwidth: 4,
+        title: 'Marks'
+	},
+	bargap: 0.05,
+	autosize: false,
+	width: 680,
+	height: 680,
+	margin: {
+		l: 50,
+		r: 50,
+		b: 100,
+		t: 100,
+		pad: 4
+	},
+	paper_bgcolor: '',
+	plot_bgcolor: ''
+}
+Plotly.plot(barchart, trace1, layout);
+</script>  
+
+{% endblock body %}
+        
+
+</html>
